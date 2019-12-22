@@ -1,4 +1,6 @@
-<h1><%=@content.title %></h1>
-Description: <p><%=@content.description %></p>
-Summary: <p><%=@content.comments %></p>
-<small><%= @content.created_at %></small>
+
+
+<h1><%=@post.title %></h1>
+<h2><%=@post.description %></h2><br />
+<%=@post.comments %><br/>
+<!--Created on: <small><%#= @post.created_at %></small>-->

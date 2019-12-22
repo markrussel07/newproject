@@ -1,1 +1,37 @@
 <h1>Add a New Post</h1>
+
+<%= form_for @post do |new| %>
+  <% if @post.errors.any? %>
+    <h2>Errors:</h2>
+    <ul>
+      <% @post.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+    <% end %>
+<p>
+  <%= new.label :title %> <br />
+  <%= new.text_field :title %>
+</p>
+
+  <p>
+    <%= new.label :description %> <br />
+    <%= new.text_field :description %>
+  </p>
+
+  <p>
+    <%= new.label :comments %> <br />
+    <%= new.text_area :comments %>
+  </p>
+<p>
+  <%= new.submit "Add a New Post" %>
+</p>
+<% end %>
+
+
+<!--<form>-->
+<!--  Title:    <input type="text" name="content[title]" placeholder="Enter title"><br>-->
+<!--  Description: <input type="text" name="content[description]" placeholder="Enter description"><br>-->
+<!--  Summary: <textarea name="content[comments]" placeholder="Enter summary"></textarea>-->
+<!--  <br><input type="submit" name="submit" class="submit" value="Post Now">-->
+<!--</form>-->

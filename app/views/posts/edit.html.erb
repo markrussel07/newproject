@@ -1,0 +1,29 @@
+<h1>Edit Post</h1>
+
+<%= form_for @post do |edit| %>
+  <% if @post.errors.any? %>
+    <h2>Errors:</h2>
+    <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <p>
+    <%= edit.label :title %> <br />
+    <%= edit.text_field :title %>
+  </p>
+
+  <p>
+    <%= edit.label :description %> <br />
+    <%= edit.text_field :description %>
+  </p>
+
+  <p>
+    <%= edit.label :comments %> <br />
+    <%= edit.text_area :comments %>
+  </p>
+  <p>
+    <%= edit.submit "Update Post" %>
+  </p>
+<% end %>

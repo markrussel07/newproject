@@ -1,12 +1,17 @@
 <h1> Newsfeed</h1>
-<h2> <%= link_to "Add a New Post", new_post_path %></h2>
-<br>
-<br>
-<br>
-<% @posts.each do |content| %>
-  Title: <h2><%= link_to content.title, content %></h2>
-  Description: <h3><%=content.description %></h3>
-  Summary: <p><%=content.comments %></p>
 
-  <hr>
+<h2> <%= link_to "Add a New Post", new_post_path %></h2>
+<br />
+
+<% @posts.each do |content| %>
+  <h2><%= link_to content.title, content %></h2>
+  <h3><%= content.description %></h3>
+  <p><%= content.comments %></p>
+ 
+  <p>
+    <%= link_to "Edit",  edit_post_path(content) %> | 
+    <%= link_to "Delete", content, :method => :delete, data:{ :confirm => "Are you sure you want to delete?"} %>
+  </p>
+  <hr />
 <% end %>
+
