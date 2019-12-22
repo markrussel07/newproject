@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login and Registration Page</title>
+</head>
+<body>
+<h1> Login</h1>
+<form action="/sessions" method="POST">
+  <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token %>">
+  Email:    <input type="email" name="login[email]" placeholder="email"><br>
+  Password: <input type="password" name="login[password]" placeholder="password">
+  <br><input type="submit" name="submit" class="submit" value="Login">
+</form>
+
+<div class="errors">
+  <%if flash[:login_errors] %>
+       <%flash[:login_errors].each do |error| %>
+          <p><%=error %></p>
+        <%end %>
+  <% end %>
+</div>
+<br>
+<hr>
+<h1> Registration</h1>
+<form action="/users" method="POST">
+  <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token %>">
+  Name: <input type="name" name="user[name]" placeholder="name"><br>
+  Email:    <input type="email" name="user[email]" placeholder="email"><br>
+  Password: <input type="password" name="user[password]" placeholder="password"><br>
+  Confirm : <input type="password" name="user[password_confirmation]" placeholder="password_confirmation">
+  <br><input type="submit" name="submit" class="submit" value="Register">
+</form>
+<div class="errors">
+  <%if flash[:register_errors] %>
+    <%flash[:register_errors].each do |error| %>
+      <p><%=error %></p>
+    <%end %>
+  <% end %>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+<h1> Newsfeed</h1>
+<h2> <%= link_to "Add a New Post", new_post_path %></h2>
+<br>
+<br>
+<br>
+<% @posts.each do |content| %>
+  Title: <h2><%= link_to content.title, content %></h2>
+  Description: <h3><%=content.description %></h3>
+  Summary: <p><%=content.comments %></p>
+
+  <hr>
+<% end %>
